@@ -2,6 +2,7 @@
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { motion } from "framer-motion";
 
 const Home = () => {
   const [board, setBoard] = React.useState(Array(9).fill(null));
@@ -84,7 +85,14 @@ const Home = () => {
 
   return (
     <div className="h-screen w-screen bg-google bg-cover font-mono space-y-10">
-      <header className="glassmorphism p-10 flex flex-row items-center justify-between rounded-b-md">
+      <motion.header
+        className="glassmorphism p-10 flex flex-row items-center justify-between rounded-b-md"
+        initial={{ y: -500, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          duration: 1,
+        }}
+      >
         <h1
           className="text-xl font-bold cursor-pointer"
           onClick={() => window.location.reload()}
@@ -94,8 +102,18 @@ const Home = () => {
         <div className="text-sm">
           {gameStatus || `Player ${isPlayerX ? "X" : "O"}'s turn`}
         </div>
-      </header>
-      <div className="glassmorphism rounded-lg  p-10 grid grid-rows-4 grid-cols-3 gap-4  text-center items-center max-w-5xl mx-auto h-2/3">
+      </motion.header>
+
+      <motion.div
+        className="glassmorphism rounded-lg  p-10 grid grid-rows-4 grid-cols-3 gap-4  text-center items-center max-w-5xl mx-auto h-2/3"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ rotate: 360, scale: 1, opacity: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 260,
+          damping: 50,
+        }}
+      >
         <div className="w-full h-full ">{renderSquare(0)}</div>
         <div className="w-full h-full">{renderSquare(1)}</div>
         <div className="w-full h-full">{renderSquare(2)}</div>
@@ -111,7 +129,7 @@ const Home = () => {
         >
           New Game
         </button>
-      </div>
+      </motion.div>
       <ToastContainer
         position="top-right"
         autoClose={1000}
