@@ -29,7 +29,7 @@ const Home = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "dark",
+        theme: "light",
       });
       return;
     }
@@ -44,7 +44,7 @@ const Home = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "dark",
+        theme: "light",
       });
       return;
     }
