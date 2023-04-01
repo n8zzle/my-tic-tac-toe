@@ -74,7 +74,7 @@ const Home = () => {
   const renderSquare = (index) => {
     return (
       <button
-        className="h-full w-full bg-white"
+        className="h-full w-full square rounded-md shadow-md"
         onClick={() => handleSquareClick(index)}
       >
         {board[index]}
@@ -83,8 +83,8 @@ const Home = () => {
   };
 
   return (
-    <div className="h-screen w-screen bg-red-200 font-mono space-y-10">
-      <header className="bg-blue-200 p-10 flex flex-row items-center justify-between">
+    <div className="h-screen w-screen bg-google bg-cover font-mono space-y-10">
+      <header className="glassmorphism p-10 flex flex-row items-center justify-between rounded-b-md">
         <h1
           className="text-xl font-bold cursor-pointer"
           onClick={() => window.location.reload()}
@@ -95,8 +95,8 @@ const Home = () => {
           {gameStatus || `Player ${isPlayerX ? "X" : "O"}'s turn`}
         </div>
       </header>
-      <div className="grid grid-rows-4 grid-cols-3 gap-4 bg-violet-300 text-center items-center max-w-3xl mx-auto h-2/3">
-        <div className="w-full h-full">{renderSquare(0)}</div>
+      <div className="glassmorphism rounded-lg  p-10 grid grid-rows-4 grid-cols-3 gap-4  text-center items-center max-w-5xl mx-auto h-2/3">
+        <div className="w-full h-full ">{renderSquare(0)}</div>
         <div className="w-full h-full">{renderSquare(1)}</div>
         <div className="w-full h-full">{renderSquare(2)}</div>
         <div className="w-full h-full">{renderSquare(3)}</div>
@@ -106,7 +106,7 @@ const Home = () => {
         <div className="w-full h-full">{renderSquare(7)}</div>
         <div className="w-full h-full">{renderSquare(8)}</div>
         <button
-          className="flex flex-row justify-center bg-white h-full items-center col-span-3 "
+          className="square flex flex-row justify-center h-full items-center col-span-3 "
           onClick={() => window.location.reload()}
         >
           New Game
@@ -114,7 +114,7 @@ const Home = () => {
       </div>
       <ToastContainer
         position="top-right"
-        autoClose={5000}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

@@ -9,7 +9,12 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        google:
+          "url('https://rare-gallery.com/uploads/posts/584665-mountains-forest.jpg')",
+      },
+    },
   },
   plugins: [],
 };
